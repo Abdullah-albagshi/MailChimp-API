@@ -11,7 +11,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 
 
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'signUp.html'))
+    res.sendFile(path.join(__dirname, '/public', 'signUp.html'))
 })
 
 
@@ -33,7 +33,6 @@ app.post('/', (req, res) => {
     }
     const jsonData = JSON.stringify(data)
     const listID = 'f185f904c4'
-    const ApiKey = '89507e62d71f903337897b5c64d79592-us7'
     const options = {
         method: 'POST',
         auth: 'Dontex:89507e62d71f903337897b5c64d79592-us7'
@@ -44,9 +43,9 @@ app.post('/', (req, res) => {
             console.log(JSON.parse(data));
         })
         if (response.statusCode === 200) {
-            res.sendFile(path.join(__dirname, 'public', 'success.html'))
+            res.sendFile(path.join(__dirname, '/public', 'success.html'))
         } else {
-            res.sendFile(path.join(__dirname, 'public', 'fail.html'))
+            res.sendFile(path.join(__dirname, '/public', 'fail.html'))
         }
     })
     request.write(jsonData)
