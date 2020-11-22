@@ -5,7 +5,7 @@ const https = require('https')
 const request = require('request')
 require('colors')
 const app = express()
-app.use(express.static('public'))
+app.use(express.static('./public'))
 
 app.use(bodyParser.urlencoded({ extended: true }))
 
