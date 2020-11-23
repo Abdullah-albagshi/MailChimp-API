@@ -37,7 +37,7 @@ app.post('/', (req, res) => {
     const listID = 'f185f904c4'
     const options = {
         method: 'POST',
-        auth: `Dontex:${process.env.API_KEY}`
+        auth: `Abdullah:${process.env.API_KEY}`
     }
     const url = `https://us7.api.mailchimp.com/3.0/lists/${listID}`
     const request = https.request(url, options, (response) => {
