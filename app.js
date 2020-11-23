@@ -3,6 +3,8 @@ const path = require('path')
 const bodyParser = require('body-parser')
 const https = require('https')
 const request = require('request')
+require('dotenv').config()
+
 require('colors')
 const app = express()
 app.use(express.static('./public'))
@@ -35,12 +37,12 @@ app.post('/', (req, res) => {
     const listID = 'f185f904c4'
     const options = {
         method: 'POST',
-        auth: 'Dontex:89507e62d71f903337897b5c64d79592-us7'
+        auth: `Dontex:${process.env.API_KEY}`
     }
     const url = `https://us7.api.mailchimp.com/3.0/lists/${listID}`
     const request = https.request(url, options, (response) => {
         response.on('data', (data) => {
-            console.log(JSON.parse(data));
+            //console.log(JSON.parse(data));
         })
         if (response.statusCode === 200) {
             res.sendFile(path.join(__dirname, '/public', 'success.html'))
